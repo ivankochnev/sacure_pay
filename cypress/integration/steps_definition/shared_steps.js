@@ -25,23 +25,14 @@ Then("I go to Pricing Standard Pricing", () => {
     cy.contains('Pricing').should('be.visible').click({ force: true })
     cy.wait(500);
     cy.contains('Standard pricing').should('be.visible').click({ force: true });
-    //cy.contains('Standard pricing').should('be.visible').click({ force: true });
     cy.wait(1000);
 
 });
 
 And("I click on Learn more button under POLi and Verify POLi site is opened & loaded", () => {
-    //cy.get('.sidebar').scrollTo('bottom')
     cy.wait(2000);
-    //cy.contains('Learn more').should('be.visible').click({ force: true })
-
-// We can remove the offending attribute - target='_blank'
-      // that would normally open content in a new tab.
-      cy.contains('Learn more').invoke('removeAttr', 'target').click();
-
-      // after clicking the <a> we are now navigated to the
-      // new page and we can assert that the url is correct
-      cy.url().should('include', 'https://www.polipayments.com/')
+    cy.contains('Learn more').invoke('removeAttr', 'target').click();
+    cy.url().should('include', 'https://www.polipayments.com/')
 
 });
 
