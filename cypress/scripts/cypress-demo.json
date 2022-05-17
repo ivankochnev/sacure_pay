@@ -1,0 +1,41 @@
+{
+    "env": {
+        "environment": "DEMO"
+    },
+    "watchForFileChanges": false,
+    "chromeWebSecurity": false,
+    "modifyObstructiveCode": false,
+    "waitForAnimation": true,
+    "animationDistanceTreshold": 200,
+    "defaultCommandTiemout": 15000,
+    "exeTimeout": 15000,
+    "pageLoadTimeout": 15000,
+    "requestTimeout": 15000,
+    "responseTimeout": 15000,
+    "video": false,
+    "failOnStatusCode": false,
+    "testFiles": "**/*.feature",
+    "ignoreTestFiles": [
+        "*.js",
+        "*.md"
+    ],
+    "screenshotsFolder": "cypress/screenshots",
+    "supportFile": "cypress/support/commands.js",
+    "retries": {
+        "runMode": 0,
+        "openMode": 0
+    },
+    "reporter": "cypress-multi-reporters",
+    "reporterOptions": {
+        "reporterEnabled": "mochawesome",
+        "mochawesomeReporterOptions": {
+            "reportDir": "reports/mocha",
+            "quite": true,
+            "overwrite": false,
+            "html": true,
+            "json": false
+        }
+    },
+    "viewportWidth": 1800,
+    "viewportHeight": 1200
+}

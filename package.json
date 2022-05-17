@@ -1,0 +1,46 @@
+{
+  "name": "secure_pay_test",
+  "version": "1.0.0",
+  "description": "Verify Secure Pay Web site",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "yarn cy:pretest && cypress open --config-file ./cypress/scripts/cypress-demo.json && yarn cy:posttest || (yarn cy:posttest && exit 1)",
+    "cy:test": "yarn cy:pretest && cypress run --headed --browser chrome --config-file ./cypress/scripts/cypress-demo.json && yarn cy:posttest || (yarn cy:posttest && exit 1)",
+    "cy:pretest": "node ./cypress/reportgen/cleanprerestuls.js",
+    "cy:posttest": "node ./cypress/reportgen/cucumber-html-report-demo.js"
+  },
+  "author": "Ivan Kochnev",
+  "last_update_on": "17 May 2022",
+  "editor_comments": "Created 7 automated test cases to cover appr 95% of functionality.",
+  "license": "ISC",
+  "dependencies": {
+    "@cucumber/cucumber": "^7.0.0-rc.0",
+    "cucumber-html-reporter": "^5.4.0",
+    "cy-mobile-commands": "^0.2.1",
+    "cypress": "^6.2.0",
+    "cypress-cucumber-preprocessor": "^4.0.0",
+    "cypress-file-upload": "^4.1.1",
+    "cypress-image-snapshot": "^3.1.1",
+    "cypress-multi-reporters": "^1.4.0",
+    "cypress-parallel": "^0.1.8",
+    "cypress-wait-until": "^1.7.1",
+    "cypress-xpath": "^1.6.1",
+    "mocha": "^8.2.1",
+    "mochawesome": "^6.2.1",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^5.1.0",
+    "multiple-cucumber-html-reporter": "^1.18.0",
+    "prettier": "^2.1.2"
+  },
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/integration/steps_definition/**/",
+    "nonGlobalStepDefinitions": false,
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "reports/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
+  }
+}
+
